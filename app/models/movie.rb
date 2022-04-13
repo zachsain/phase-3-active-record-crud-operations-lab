@@ -1,6 +1,5 @@
 class Movie < ActiveRecord::Base
 
-
     def self.create_with_title(title)
         Movie.create(title: title)
       end
@@ -21,6 +20,9 @@ class Movie < ActiveRecord::Base
         Movie.find_by(attributes)    
     end 
     def self.find_movies_after_2002
-        Movie.where(:release_date > 2002)
+        Movie.where("release_date > 2002")
+    end
+    def self.update_with_attributes(value)
+        Movie.update
     end
 end
